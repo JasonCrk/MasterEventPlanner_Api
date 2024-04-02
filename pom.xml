@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.EventPlanCorp</groupId>
-	<artifactId>master_event_planner_api</artifactId>
+	<artifactId>SAR_EventPlanner_Api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Master Event Planner</name>
 	<description>Demo project for Spring Boot</description>
