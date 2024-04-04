@@ -1,13 +1,13 @@
-package com.EventPlanCorp.MasterEventPlanner;
+package com.SAR.ReservationsSAR;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MasterEventPlannerApplication {
+public class ReservationsSARApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MasterEventPlannerApplication.class, args);
+		SpringApplication.run(ReservationsSARApplication.class, args);
 	}
 
 }

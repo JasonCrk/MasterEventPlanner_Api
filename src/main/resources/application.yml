@@ -1,0 +1,5 @@
+spring:
+    application:
+        name: Reservations SAR
+    profiles:
+        active: dev
