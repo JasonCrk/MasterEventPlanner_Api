@@ -1,4 +1,4 @@
-package com.EventPlanCorp.MasterEventPlanner;
+package com.SAR.ReservationsSAR;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
