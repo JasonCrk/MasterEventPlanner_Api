@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.context.auth.application.validations.IsPhoneNumber;
+package com.SAR.ReservationsSAR.context.auth.domain.validations.IsPhoneNumber;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
