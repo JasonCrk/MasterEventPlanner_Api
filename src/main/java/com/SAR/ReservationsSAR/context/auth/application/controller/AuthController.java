@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.context.auth.infrastructure.controller;
+package com.SAR.ReservationsSAR.context.auth.application.controller;
 
 import com.SAR.ReservationsSAR.context.auth.application.requests.LoginRequest;
 import com.SAR.ReservationsSAR.context.auth.application.requests.RegisterUserRequest;
