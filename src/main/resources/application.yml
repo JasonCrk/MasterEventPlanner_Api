@@ -3,3 +3,7 @@ spring:
         name: Reservations SAR
     profiles:
         active: dev
+
+server:
+    error:
+        include-message: always
