@@ -6,6 +6,7 @@ import com.SAR.ReservationsSAR.context.payment.domain.*;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
+import com.stripe.param.PaymentIntentCancelParams;
 import com.stripe.param.PaymentIntentCreateParams;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -42,7 +43,16 @@ public class StripeExternalPaymentServiceAdapter implements ExternalPaymentServi
             PaymentIntent paymentResponse = PaymentIntent.create(params);
             return new PaymentResponse(paymentResponse.getId(), paymentResponse.getClientSecret());
         } catch (StripeException e) {
-            log.error(e.getStripeError().toString());
+            throw new PaymentException(e.getStripeError().getMessage());
+        }
+    }
+
+    @Override
+    public void cancelPayment(String payId) {
+        try {
+            PaymentIntent payment = PaymentIntent.retrieve(payId);
+            payment.cancel(PaymentIntentCancelParams.builder().build());
+        } catch (StripeException e) {
             throw new PaymentException(e.getStripeError().getMessage());
         }
     }

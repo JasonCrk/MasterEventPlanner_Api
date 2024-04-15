@@ -6,4 +6,5 @@ public interface ExternalPaymentService {
             Long amount,
             PaymentCurrency currency
     );
+    void cancelPayment(String payId);
 }
