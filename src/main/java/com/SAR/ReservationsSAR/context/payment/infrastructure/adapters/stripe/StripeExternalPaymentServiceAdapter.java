@@ -8,17 +8,17 @@ import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
 import com.stripe.param.PaymentIntentCreateParams;
 
-import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-@Slf4j
 public class StripeExternalPaymentServiceAdapter implements ExternalPaymentService {
 
-    @Value("${application.payment.services.stripe.api-key}")
-    private String stripeApiKey;
+    public StripeExternalPaymentServiceAdapter(
+            @Value("${application.payment.services.stripe.api-key}") String stripeApiKey
+    ) {
+        Stripe.apiKey = stripeApiKey;
+    }
 
     @Override
     public PaymentResponse cardPay(
@@ -26,8 +26,6 @@ public class StripeExternalPaymentServiceAdapter implements ExternalPaymentServi
             Long amount,
             PaymentCurrency currency
     ) {
-        Stripe.apiKey = this.stripeApiKey;
-
         PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
                 .setAmount(amount)
                 .setCustomer(customer.getId())
