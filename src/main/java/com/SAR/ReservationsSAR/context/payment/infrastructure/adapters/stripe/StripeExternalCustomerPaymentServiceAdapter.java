@@ -16,13 +16,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class StripeExternalCustomerPaymentServiceAdapter implements ExternalCustomerPaymentService {
 
-    @Value("${application.payment.services.stripe.api-key}")
-    private String stripeApiKey;
+    public StripeExternalCustomerPaymentServiceAdapter(
+            @Value("${application.payment.services.stripe.api-key}") String stripeApiKey
+    ) {
+        Stripe.apiKey = stripeApiKey;
+    }
 
     @Override
     public Customer findByEmail(String email) {
-        Stripe.apiKey = this.stripeApiKey;
-
         CustomerSearchParams params = CustomerSearchParams.builder()
                 .setQuery("email: '" + email + "'")
                 .build();
@@ -44,8 +45,6 @@ public class StripeExternalCustomerPaymentServiceAdapter implements ExternalCust
 
     @Override
     public Customer create(String firstName, String lastName, String email) {
-        Stripe.apiKey = this.stripeApiKey;
-
         CustomerCreateParams params = CustomerCreateParams.builder()
                 .setName(firstName + " " + lastName)
                 .setEmail(email)
@@ -68,8 +67,6 @@ public class StripeExternalCustomerPaymentServiceAdapter implements ExternalCust
 
     @Override
     public Customer findByEmailOrCreate(String firstName, String lastName, String email) {
-        Stripe.apiKey = this.stripeApiKey;
-
         var customer = this.findByEmail(email);
 
         if (customer != null) return customer;
