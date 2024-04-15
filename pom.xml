@@ -20,6 +20,7 @@
 		<org.springdoc.version>2.3.0</org.springdoc.version>
 		<org.projectlombok.version>1.18.32</org.projectlombok.version>
 		<com.firebase.version>9.2.0</com.firebase.version>
+		<com.stripe.version>25.0.0</com.stripe.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -100,6 +101,13 @@
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>${org.springdoc.version}</version>
+		</dependency>
+
+		<!-- Stripe (payment) -->
+		<dependency>
+			<groupId>com.stripe</groupId>
+			<artifactId>stripe-java</artifactId>
+			<version>${com.stripe.version}</version>
 		</dependency>
 	</dependencies>
 
