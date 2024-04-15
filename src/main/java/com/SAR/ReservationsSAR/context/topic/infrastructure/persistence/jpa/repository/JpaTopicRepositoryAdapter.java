@@ -7,6 +7,7 @@ import com.SAR.ReservationsSAR.context.topic.infrastructure.persistence.jpa.enti
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -15,6 +16,11 @@ public class JpaTopicRepositoryAdapter implements TopicRepository {
 
     @Autowired
     private JpaTopicRepository repository;
+
+    @Override
+    public List<Topic> findAll() {
+        return this.repository.findAll().stream().map(TopicEntity::toDomainModel).toList();
+    }
 
     @Override
     public Optional<Topic> findById(UUID id) {
