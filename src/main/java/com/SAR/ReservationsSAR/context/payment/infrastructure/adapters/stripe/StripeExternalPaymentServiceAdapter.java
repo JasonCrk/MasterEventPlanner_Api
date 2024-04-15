@@ -30,7 +30,6 @@ public class StripeExternalPaymentServiceAdapter implements ExternalPaymentServi
                 .setAmount(amount)
                 .setCustomer(customer.getId())
                 .setCurrency(currency.name())
-                .addPaymentMethodType("card")
                 .setAutomaticPaymentMethods(
                         PaymentIntentCreateParams.AutomaticPaymentMethods
                                 .builder()
