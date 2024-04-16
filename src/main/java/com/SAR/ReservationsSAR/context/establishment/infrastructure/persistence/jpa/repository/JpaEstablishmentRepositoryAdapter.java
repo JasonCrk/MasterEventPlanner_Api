@@ -7,6 +7,8 @@ import com.SAR.ReservationsSAR.context.establishment.infrastructure.persistence.
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -15,6 +17,22 @@ public class JpaEstablishmentRepositoryAdapter implements EstablishmentRepositor
 
     @Autowired
     private JpaEstablishmentRepository repository;
+
+    @Override
+    public List<Establishment> findAll() {
+        return this.repository.findAll().stream()
+                .map(EstablishmentEntity::toDomainModel).toList();
+    }
+
+    @Override
+    public List<Establishment> findAvailableEstablishments(
+            LocalDateTime realizationDate,
+            LocalDateTime finishDate,
+            UUID topicId
+    ) {
+        return this.repository.findAvailableEstablishments(realizationDate, finishDate, topicId).stream()
+                .map(EstablishmentEntity::toDomainModel).toList();
+    }
 
     @Override
     public Optional<Establishment> findById(UUID id) {
