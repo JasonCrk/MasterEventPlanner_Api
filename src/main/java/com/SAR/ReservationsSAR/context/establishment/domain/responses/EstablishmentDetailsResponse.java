@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.context.establishment.application.responses;
+package com.SAR.ReservationsSAR.context.establishment.domain.responses;
 
 import com.SAR.ReservationsSAR.context.establishment.domain.EstablishmentImage;
 

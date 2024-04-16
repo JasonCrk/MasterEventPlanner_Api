@@ -1,8 +1,8 @@
-package com.SAR.ReservationsSAR.context.establishment.application.mappers;
+package com.SAR.ReservationsSAR.context.establishment.domain.mappers;
 
-import com.SAR.ReservationsSAR.context.establishment.application.responses.EstablishmentDetailsResponse;
-import com.SAR.ReservationsSAR.context.establishment.application.responses.EstablishmentItemResponse;
-import com.SAR.ReservationsSAR.context.establishment.application.responses.EstablishmentSimpleResponse;
+import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentDetailsResponse;
+import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentItemResponse;
+import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentSimpleResponse;
 import com.SAR.ReservationsSAR.context.establishment.domain.Establishment;
 
 import org.mapstruct.Mapper;

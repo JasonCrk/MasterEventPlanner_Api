@@ -1,6 +1,6 @@
 package com.SAR.ReservationsSAR.context.reservation.application.responses;
 
-import com.SAR.ReservationsSAR.context.establishment.application.responses.EstablishmentSimpleResponse;
+import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentSimpleResponse;
 import com.SAR.ReservationsSAR.context.topic.application.responses.TopicResponse;
 
 import lombok.AllArgsConstructor;

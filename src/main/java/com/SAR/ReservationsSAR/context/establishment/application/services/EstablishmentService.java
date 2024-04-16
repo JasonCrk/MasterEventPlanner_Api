@@ -1,7 +1,7 @@
 package com.SAR.ReservationsSAR.context.establishment.application.services;
 
-import com.SAR.ReservationsSAR.context.establishment.application.responses.EstablishmentDetailsResponse;
-import com.SAR.ReservationsSAR.context.establishment.application.responses.EstablishmentItemResponse;
+import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentDetailsResponse;
+import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentItemResponse;
 import com.SAR.ReservationsSAR.context.establishment.domain.Establishment;
 import com.SAR.ReservationsSAR.context.topic.domain.Topic;
 
