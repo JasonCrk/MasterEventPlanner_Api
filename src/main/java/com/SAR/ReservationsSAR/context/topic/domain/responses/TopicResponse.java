@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.context.topic.application.responses;
+package com.SAR.ReservationsSAR.context.topic.domain.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
