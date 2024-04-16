@@ -7,4 +7,5 @@ import java.util.UUID;
 public interface TopicRepository {
     List<Topic> findAll();
     Optional<Topic> findById(UUID id);
+    boolean existsById(UUID id);
 }

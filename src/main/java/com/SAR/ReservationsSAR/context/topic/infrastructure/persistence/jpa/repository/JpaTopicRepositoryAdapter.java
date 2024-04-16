@@ -26,4 +26,9 @@ public class JpaTopicRepositoryAdapter implements TopicRepository {
     public Optional<Topic> findById(UUID id) {
         return this.repository.findById(id).map(TopicEntity::toDomainModel);
     }
+
+    @Override
+    public boolean existsById(UUID id) {
+        return this.repository.existsById(id);
+    }
 }
