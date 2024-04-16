@@ -1,7 +1,7 @@
 package com.SAR.ReservationsSAR.context.reservation.application.services;
 
-import com.SAR.ReservationsSAR.context.reservation.application.requests.MakeReservationRequest;
-import com.SAR.ReservationsSAR.context.reservation.application.responses.ReservationItemResponse;
+import com.SAR.ReservationsSAR.context.reservation.domain.requests.MakeReservationRequest;
+import com.SAR.ReservationsSAR.context.reservation.domain.responses.ReservationItemResponse;
 import com.SAR.ReservationsSAR.context.user.domain.User;
 import com.SAR.ReservationsSAR.shared.application.responses.MessageResponse;
 

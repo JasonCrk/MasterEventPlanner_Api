@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.context.reservation.application.responses;
+package com.SAR.ReservationsSAR.context.reservation.domain.responses;
 
 import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentSimpleResponse;
 import com.SAR.ReservationsSAR.context.topic.application.responses.TopicResponse;

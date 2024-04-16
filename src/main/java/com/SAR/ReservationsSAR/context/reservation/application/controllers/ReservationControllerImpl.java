@@ -1,6 +1,6 @@
 package com.SAR.ReservationsSAR.context.reservation.application.controllers;
 
-import com.SAR.ReservationsSAR.context.reservation.application.requests.MakeReservationRequest;
+import com.SAR.ReservationsSAR.context.reservation.domain.requests.MakeReservationRequest;
 import com.SAR.ReservationsSAR.context.reservation.application.services.ReservationService;
 import com.SAR.ReservationsSAR.context.user.domain.User;
 
