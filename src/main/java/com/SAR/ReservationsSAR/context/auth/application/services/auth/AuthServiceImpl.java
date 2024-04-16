@@ -10,7 +10,7 @@ import com.SAR.ReservationsSAR.context.user.domain.User;
 import com.SAR.ReservationsSAR.context.user.domain.UserRepository;
 import com.SAR.ReservationsSAR.context.user.domain.UserRole;
 
-import com.SAR.ReservationsSAR.shared.application.responses.MessageResponse;
+import com.SAR.ReservationsSAR.shared.domain.responses.MessageResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

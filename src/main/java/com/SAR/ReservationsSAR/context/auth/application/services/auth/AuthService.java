@@ -3,7 +3,7 @@ package com.SAR.ReservationsSAR.context.auth.application.services.auth;
 import com.SAR.ReservationsSAR.context.auth.domain.requests.LoginRequest;
 import com.SAR.ReservationsSAR.context.auth.domain.requests.RegisterUserRequest;
 import com.SAR.ReservationsSAR.context.auth.domain.responses.JwtResponse;
-import com.SAR.ReservationsSAR.shared.application.responses.MessageResponse;
+import com.SAR.ReservationsSAR.shared.domain.responses.MessageResponse;
 import com.SAR.ReservationsSAR.context.user.domain.responses.UserMe;
 import com.SAR.ReservationsSAR.context.user.domain.User;
 

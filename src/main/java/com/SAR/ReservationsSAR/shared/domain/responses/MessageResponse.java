@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.shared.application.responses;
+package com.SAR.ReservationsSAR.shared.domain.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

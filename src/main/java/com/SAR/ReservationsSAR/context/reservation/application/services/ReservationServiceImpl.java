@@ -17,7 +17,7 @@ import com.SAR.ReservationsSAR.context.topic.domain.Topic;
 import com.SAR.ReservationsSAR.context.topic.domain.TopicRepository;
 import com.SAR.ReservationsSAR.context.user.domain.User;
 
-import com.SAR.ReservationsSAR.shared.application.responses.MessageResponse;
+import com.SAR.ReservationsSAR.shared.domain.responses.MessageResponse;
 
 import jakarta.transaction.Transactional;
 
