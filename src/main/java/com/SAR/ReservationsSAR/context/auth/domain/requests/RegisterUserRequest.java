@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.context.auth.application.requests;
+package com.SAR.ReservationsSAR.context.auth.domain.requests;
 
 import com.SAR.ReservationsSAR.context.auth.domain.validations.IsPhoneNumber.IsPhoneNumber;
 

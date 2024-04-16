@@ -1,8 +1,8 @@
 package com.SAR.ReservationsSAR.context.auth.application.services.auth;
 
-import com.SAR.ReservationsSAR.context.auth.application.requests.LoginRequest;
-import com.SAR.ReservationsSAR.context.auth.application.requests.RegisterUserRequest;
-import com.SAR.ReservationsSAR.context.auth.application.responses.JwtResponse;
+import com.SAR.ReservationsSAR.context.auth.domain.requests.LoginRequest;
+import com.SAR.ReservationsSAR.context.auth.domain.requests.RegisterUserRequest;
+import com.SAR.ReservationsSAR.context.auth.domain.responses.JwtResponse;
 import com.SAR.ReservationsSAR.context.auth.application.services.jwt.JWTService;
 import com.SAR.ReservationsSAR.context.auth.application.services.sessionToken.SessionTokenService;
 import com.SAR.ReservationsSAR.context.user.application.responses.UserMe;

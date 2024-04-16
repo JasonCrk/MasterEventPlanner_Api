@@ -1,6 +1,6 @@
 package com.SAR.ReservationsSAR.context.auth.application.services.sessionToken;
 
-import com.SAR.ReservationsSAR.context.auth.application.responses.UserAndTokenResponse;
+import com.SAR.ReservationsSAR.context.auth.domain.responses.UserAndTokenResponse;
 import com.SAR.ReservationsSAR.context.auth.application.services.jwt.JWTService;
 import com.SAR.ReservationsSAR.context.auth.domain.SessionToken;
 import com.SAR.ReservationsSAR.context.auth.domain.SessionTokenRepository;

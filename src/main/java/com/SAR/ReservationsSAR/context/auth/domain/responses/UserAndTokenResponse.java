@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.context.auth.application.responses;
+package com.SAR.ReservationsSAR.context.auth.domain.responses;
 
 import com.SAR.ReservationsSAR.context.user.domain.User;
 
