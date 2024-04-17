@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.context.reservation.application.requests;
+package com.SAR.ReservationsSAR.context.reservation.domain.requests;
 
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;

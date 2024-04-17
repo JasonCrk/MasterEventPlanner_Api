@@ -1,7 +1,7 @@
 package com.SAR.ReservationsSAR.shared.application.exceptions;
 
 import com.SAR.ReservationsSAR.context.payment.application.exceptions.PaymentException;
-import com.SAR.ReservationsSAR.shared.application.responses.ApiErrorResponse;
+import com.SAR.ReservationsSAR.shared.domain.responses.ApiErrorResponse;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

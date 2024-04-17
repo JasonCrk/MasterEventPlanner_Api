@@ -1,7 +1,7 @@
 package com.SAR.ReservationsSAR.context.auth.application.controller;
 
-import com.SAR.ReservationsSAR.context.auth.application.requests.LoginRequest;
-import com.SAR.ReservationsSAR.context.auth.application.requests.RegisterUserRequest;
+import com.SAR.ReservationsSAR.context.auth.domain.requests.LoginRequest;
+import com.SAR.ReservationsSAR.context.auth.domain.requests.RegisterUserRequest;
 
 import com.SAR.ReservationsSAR.context.user.domain.User;
 import jakarta.servlet.http.HttpServletRequest;

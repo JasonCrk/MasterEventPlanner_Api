@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.context.user.application.responses;
+package com.SAR.ReservationsSAR.context.topic.domain.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +9,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserMe {
+public class TopicResponse {
     private UUID id;
-    private String firstName;
-    private String lastName;
+    private String name;
 }

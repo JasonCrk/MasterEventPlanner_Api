@@ -7,9 +7,9 @@ import com.SAR.ReservationsSAR.context.payment.domain.Customer;
 import com.SAR.ReservationsSAR.context.payment.domain.ExternalCustomerPaymentService;
 import com.SAR.ReservationsSAR.context.payment.domain.ExternalPaymentService;
 import com.SAR.ReservationsSAR.context.payment.domain.PaymentCurrency;
-import com.SAR.ReservationsSAR.context.reservation.application.mappers.ReservationMapper;
-import com.SAR.ReservationsSAR.context.reservation.application.requests.MakeReservationRequest;
-import com.SAR.ReservationsSAR.context.reservation.application.responses.ReservationItemResponse;
+import com.SAR.ReservationsSAR.context.reservation.domain.mappers.ReservationMapper;
+import com.SAR.ReservationsSAR.context.reservation.domain.requests.MakeReservationRequest;
+import com.SAR.ReservationsSAR.context.reservation.domain.responses.ReservationItemResponse;
 import com.SAR.ReservationsSAR.context.reservation.domain.Reservation;
 import com.SAR.ReservationsSAR.context.reservation.domain.ReservationRepository;
 import com.SAR.ReservationsSAR.context.reservation.domain.ReservationStatus;
@@ -17,7 +17,7 @@ import com.SAR.ReservationsSAR.context.topic.domain.Topic;
 import com.SAR.ReservationsSAR.context.topic.domain.TopicRepository;
 import com.SAR.ReservationsSAR.context.user.domain.User;
 
-import com.SAR.ReservationsSAR.shared.application.responses.MessageResponse;
+import com.SAR.ReservationsSAR.shared.domain.responses.MessageResponse;
 
 import jakarta.transaction.Transactional;
 

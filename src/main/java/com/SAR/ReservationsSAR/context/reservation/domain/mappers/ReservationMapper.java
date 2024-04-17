@@ -1,9 +1,9 @@
-package com.SAR.ReservationsSAR.context.reservation.application.mappers;
+package com.SAR.ReservationsSAR.context.reservation.domain.mappers;
 
-import com.SAR.ReservationsSAR.context.establishment.application.mappers.EstablishmentMapper;
-import com.SAR.ReservationsSAR.context.reservation.application.responses.ReservationItemResponse;
+import com.SAR.ReservationsSAR.context.establishment.domain.mappers.EstablishmentMapper;
+import com.SAR.ReservationsSAR.context.reservation.domain.responses.ReservationItemResponse;
 import com.SAR.ReservationsSAR.context.reservation.domain.Reservation;
-import com.SAR.ReservationsSAR.context.topic.application.mappers.TopicMapper;
+import com.SAR.ReservationsSAR.context.topic.domain.mappers.TopicMapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
