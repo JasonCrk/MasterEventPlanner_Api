@@ -3,6 +3,8 @@ package com.SAR.ReservationsSAR.context.reservation.application.controllers;
 import com.SAR.ReservationsSAR.context.reservation.domain.requests.MakeReservationRequest;
 import com.SAR.ReservationsSAR.context.user.domain.User;
 
+import jakarta.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestAttribute;
@@ -15,7 +17,7 @@ public interface ReservationController {
 
     ResponseEntity<?> makeReservation(
             @RequestAttribute("user") User user,
-            @RequestBody MakeReservationRequest request
+            @Valid @RequestBody MakeReservationRequest request
     );
 
     ResponseEntity<?> cancelReservation(

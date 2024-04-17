@@ -1,29 +1,40 @@
 package com.SAR.ReservationsSAR.context.reservation.domain.requests;
 
-import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Data
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class MakeReservationRequest {
+@EqualsAndHashCode(callSuper = true)
+public class MakeReservationRequest extends BaseScheduleReservation {
 
     @NotNull(message = "El establecimiento es requerido")
-    private UUID establishmentId;
+    @Pattern(
+            regexp = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+            message = "El ID del establecimiento es invalido"
+    )
+    private String establishmentId;
 
     @NotNull(message = "El tema es requerido")
-    private UUID topicId;
+    @Pattern(
+            regexp = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+            message = "El ID del tema es invalido"
+    )
+    private String topicId;
 
-    @Future(message = "La fecha debe ser mayor a la actual")
-    private LocalDateTime realizationDate;
+    public UUID getEstablishmentId() {
+        return UUID.fromString(this.establishmentId);
+    }
 
-    @Future
-    private LocalDateTime finishDate;
+    public UUID getTopicId() {
+        return UUID.fromString(this.topicId);
+    }
 }
