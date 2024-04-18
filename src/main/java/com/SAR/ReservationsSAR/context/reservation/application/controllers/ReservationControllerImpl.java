@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,8 +38,7 @@ public class ReservationControllerImpl implements ReservationController {
     @PostMapping
     @Operation(summary = "Make reservation")
     public ResponseEntity<?> makeReservation(User user, MakeReservationRequest request) {
-//        return new ResponseEntity<>(this.service.makeReservation(user, request), HttpStatus.CREATED);
-        return ResponseEntity.ok(request);
+        return new ResponseEntity<>(this.service.makeReservation(user, request), HttpStatus.CREATED);
     }
 
     @Override
