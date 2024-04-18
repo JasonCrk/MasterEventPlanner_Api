@@ -1,6 +1,6 @@
-package com.SAR.ReservationsSAR.shared.infrastructure.security;
+package com.SAR.ReservationsSAR.shared.application.security;
 
-import com.SAR.ReservationsSAR.shared.infrastructure.security.filters.AuthFilter;
+import com.SAR.ReservationsSAR.shared.application.security.filters.AuthFilter;
 
 import lombok.RequiredArgsConstructor;
 

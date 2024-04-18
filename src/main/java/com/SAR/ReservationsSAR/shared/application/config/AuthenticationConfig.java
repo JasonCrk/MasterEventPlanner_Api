@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.shared.infrastructure.config;
+package com.SAR.ReservationsSAR.shared.application.config;
 
 import com.SAR.ReservationsSAR.context.user.domain.UserRepository;
 

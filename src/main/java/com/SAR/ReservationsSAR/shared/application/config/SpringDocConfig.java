@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.shared.infrastructure.config;
+package com.SAR.ReservationsSAR.shared.application.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.shared.infrastructure.filters;
+package com.SAR.ReservationsSAR.shared.application.filters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

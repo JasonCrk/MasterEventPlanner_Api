@@ -1,4 +1,4 @@
-package com.SAR.ReservationsSAR.shared.infrastructure.security;
+package com.SAR.ReservationsSAR.shared.application.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,11 +1,11 @@
-package com.SAR.ReservationsSAR.shared.infrastructure.security.filters;
+package com.SAR.ReservationsSAR.shared.application.security.filters;
 
 import com.SAR.ReservationsSAR.context.auth.application.services.jwt.JWTService;
 import com.SAR.ReservationsSAR.context.auth.domain.SessionTokenRepository;
 import com.SAR.ReservationsSAR.context.user.domain.User;
 import com.SAR.ReservationsSAR.context.user.domain.UserRepository;
 
-import com.SAR.ReservationsSAR.shared.infrastructure.filters.FilterErrorResponse;
+import com.SAR.ReservationsSAR.shared.application.filters.FilterErrorResponse;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
