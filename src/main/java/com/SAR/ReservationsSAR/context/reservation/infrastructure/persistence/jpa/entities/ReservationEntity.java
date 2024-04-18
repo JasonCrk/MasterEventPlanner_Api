@@ -13,7 +13,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -42,10 +42,9 @@ public class ReservationEntity {
     @JoinColumn(name = "topic_id", nullable = false)
     private TopicEntity topic;
 
-    @Builder.Default
-    @CreatedDate
+    @CreationTimestamp
     @Column(nullable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 
     @Column(nullable = false)
     private LocalDateTime realizationDate;
@@ -56,10 +55,15 @@ public class ReservationEntity {
     @Column(nullable = false)
     private String payId;
 
-    @Builder.Default
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "VARCHAR(10) DEFAULT 'PENDING'")
-    private ReservationStatus status = ReservationStatus.PENDING;
+    @Column(nullable = false, columnDefinition = "VARCHAR(10)")
+    private ReservationStatus status;
+
+    @PrePersist
+    public void setDefaultValues() {
+        this.createdAt = LocalDateTime.now();
+        this.status = ReservationStatus.PENDING;
+    }
 
     public static ReservationEntity fromDomainModel(Reservation reservation) {
         return ReservationEntity.builder()
