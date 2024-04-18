@@ -28,7 +28,7 @@ public interface JpaReservationRepository extends JpaRepository<ReservationEntit
                 "OR (:realizationDate <= DATE_ADD(r.finish_date, INTERVAL 2 HOUR) AND DATE_ADD(r.finish_date, INTERVAL 2 HOUR) <= DATE_ADD(:finishDate, INTERVAL 2 HOUR)) " +
                 "OR (r.realization_date <= :realizationDate AND DATE_ADD(:finishDate, INTERVAL 2 HOUR) <= DATE_ADD(r.finish_date, INTERVAL 2 HOUR)) " +
             ")")
-    long existsBetweenRealizationDateAndFinishDate(
+    int existsBetweenRealizationDateAndFinishDate(
             @Param("establishmentId") UUID establishmentId,
             @Param("realizationDate") LocalDateTime realizationDate,
             @Param("finishDate") LocalDateTime finishDate
