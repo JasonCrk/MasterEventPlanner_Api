@@ -51,14 +51,18 @@ public class UserEntity implements UserDetails {
     @Column(unique = true, nullable = false)
     private String password;
 
-    @Builder.Default
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "VARCHAR(8)")
     @Enumerated(EnumType.STRING)
-    private UserRole role = UserRole.USER;
+    private UserRole role;
 
     @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<SessionTokenEntity> sessionTokens = new ArrayList<>();
+
+    @PrePersist
+    public void setDefaultValues() {
+        this.role = UserRole.USER;
+    }
 
     public static UserEntity fromDomainModel(User user) {
         return UserEntity.builder()

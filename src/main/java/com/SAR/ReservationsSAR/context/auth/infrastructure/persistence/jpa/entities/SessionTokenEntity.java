@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import java.util.UUID;
 
 @Entity
-@Table(name = "session_tokens")
+@Table(name = "session_token")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -28,19 +28,25 @@ public class SessionTokenEntity {
     @Column(unique = true, nullable = false)
     private String token;
 
-    @Builder.Default
     @Enumerated(EnumType.STRING)
-    private TokenType type = TokenType.BEARER;
+    private TokenType type;
 
-    @Column(columnDefinition = "BOOLEAN")
+    @Column(nullable = false, columnDefinition = "BOOLEAN")
     private boolean revoked;
 
-    @Column(columnDefinition = "BOOLEAN")
+    @Column(nullable = false, columnDefinition = "BOOLEAN")
     private boolean expired;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
+
+    @PrePersist
+    public void setDefaultValues() {
+        this.type = TokenType.BEARER;
+        this.revoked = false;
+        this.expired = false;
+    }
 
     public static SessionTokenEntity fromDomainModel(SessionToken sessionToken) {
         return SessionTokenEntity.builder()
