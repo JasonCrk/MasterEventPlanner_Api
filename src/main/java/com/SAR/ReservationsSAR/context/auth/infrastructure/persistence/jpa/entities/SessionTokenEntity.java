@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import java.util.UUID;
 
 @Entity
-@Table(name = "session_tokens")
+@Table(name = "session_token")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
