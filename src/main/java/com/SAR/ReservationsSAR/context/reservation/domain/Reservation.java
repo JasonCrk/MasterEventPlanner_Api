@@ -24,10 +24,6 @@ public class Reservation {
     private String payId;
     private LocalDateTime realizationDate;
     private LocalDateTime finishDate;
-
-    @Builder.Default
-    private LocalDateTime createdAt = LocalDateTime.now();
-
-    @Builder.Default
-    private ReservationStatus status = ReservationStatus.PENDING;
+    private LocalDateTime createdAt;
+    private ReservationStatus status;
 }
