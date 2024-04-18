@@ -4,10 +4,9 @@ import com.SAR.ReservationsSAR.context.auth.domain.SessionToken;
 import com.SAR.ReservationsSAR.context.auth.domain.SessionTokenRepository;
 import com.SAR.ReservationsSAR.context.auth.infrastructure.persistence.jpa.entities.SessionTokenEntity;
 
-import jakarta.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +19,7 @@ public class JpaSessionTokenRepositoryAdapter implements SessionTokenRepository 
     private JpaSessionTokenRepository jpaRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public List<SessionToken> findAll() {
         return this.jpaRepository.findAll().stream()
                 .map(SessionTokenEntity::toDomainModel)
@@ -27,6 +27,7 @@ public class JpaSessionTokenRepositoryAdapter implements SessionTokenRepository 
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SessionToken> findAllValidSessionTokenByUser(UUID userId) {
         return this.jpaRepository.findAllValidSessionTokenByUser(userId).stream()
                 .map(SessionTokenEntity::toDomainModel)
@@ -34,7 +35,7 @@ public class JpaSessionTokenRepositoryAdapter implements SessionTokenRepository 
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Optional<SessionToken> findByToken(String token) {
         var sessionToken = jpaRepository.findByToken(token);
         return sessionToken.map(SessionTokenEntity::toDomainModel);

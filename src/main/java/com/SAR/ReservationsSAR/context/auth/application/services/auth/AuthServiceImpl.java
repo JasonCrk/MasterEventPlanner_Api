@@ -22,6 +22,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 @Service
@@ -42,6 +43,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
+    @Transactional
     public JwtResponse registerUser(RegisterUserRequest request) {
         var user = User.builder()
                 .firstName(request.getFirstName())
@@ -64,6 +66,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
+    @Transactional
     public JwtResponse login(LoginRequest request) {
         User user = this.userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The user does not exist"));
@@ -83,6 +86,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
+    @Transactional
     public JwtResponse refreshToken(
             HttpServletRequest request,
             HttpServletResponse response
@@ -99,6 +103,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public MessageResponse verifyToken(HttpServletRequest request) {
         var authorizationData = this.sessionTokenService
                 .getUserAndTokenFromHttpRequestHeader(request);

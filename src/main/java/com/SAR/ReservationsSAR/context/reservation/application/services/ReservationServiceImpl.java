@@ -19,12 +19,11 @@ import com.SAR.ReservationsSAR.context.user.domain.User;
 
 import com.SAR.ReservationsSAR.shared.domain.responses.MessageResponse;
 
-import jakarta.transaction.Transactional;
-
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -44,6 +43,7 @@ public class ReservationServiceImpl implements ReservationService {
     private final ExternalCustomerPaymentService customerPaymentService;
 
     @Override
+    @Transactional(readOnly = true)
     public List<ReservationItemResponse> getAllPendingReservations(User authUser) {
         var reservations = this.reservationRepository.findByUserAndStatus(
                 authUser,

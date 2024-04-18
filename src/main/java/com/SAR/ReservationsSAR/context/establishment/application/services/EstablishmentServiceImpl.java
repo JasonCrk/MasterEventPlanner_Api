@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
@@ -27,6 +28,7 @@ public class EstablishmentServiceImpl implements EstablishmentService {
     private final TopicRepository topicRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public EstablishmentDetailsResponse getEstablishmentDetails(UUID establishmentId) {
         var establishment = this.establishmentRepository
                 .findById(establishmentId)
@@ -39,6 +41,7 @@ public class EstablishmentServiceImpl implements EstablishmentService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Topic> getEstablishmentTopics(UUID establishmentId) {
         Establishment establishment = this.establishmentRepository.findById(establishmentId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "El establecimiento no existe"));
@@ -47,6 +50,7 @@ public class EstablishmentServiceImpl implements EstablishmentService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<EstablishmentItemResponse> searchAvailableEstablishments(
             LocalDateTime realizationDate,
             LocalDateTime finishDate,

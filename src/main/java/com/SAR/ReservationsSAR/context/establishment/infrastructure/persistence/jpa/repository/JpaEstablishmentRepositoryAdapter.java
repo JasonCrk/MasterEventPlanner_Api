@@ -6,6 +6,7 @@ import com.SAR.ReservationsSAR.context.establishment.infrastructure.persistence.
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,12 +20,14 @@ public class JpaEstablishmentRepositoryAdapter implements EstablishmentRepositor
     private JpaEstablishmentRepository repository;
 
     @Override
+    @Transactional(readOnly = true)
     public List<Establishment> findAll() {
         return this.repository.findAll().stream()
                 .map(EstablishmentEntity::toDomainModel).toList();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Establishment> findAvailableEstablishments(
             LocalDateTime realizationDate,
             LocalDateTime finishDate,
@@ -35,11 +38,13 @@ public class JpaEstablishmentRepositoryAdapter implements EstablishmentRepositor
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Establishment> findById(UUID id) {
         return this.repository.findById(id).map(EstablishmentEntity::toDomainModel);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public boolean hasTopic(UUID establishmentId, UUID topicId) {
         return this.repository.hasTopic(establishmentId, topicId) > 0;
     }
