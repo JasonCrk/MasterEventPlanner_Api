@@ -1,6 +1,7 @@
 package com.SAR.ReservationsSAR.context.user.infrastructure.persistence.jpa.entities;
 
 import com.SAR.ReservationsSAR.context.auth.infrastructure.persistence.jpa.entities.SessionTokenEntity;
+import com.SAR.ReservationsSAR.context.reservation.infrastructure.persistence.jpa.entities.ReservationEntity;
 import com.SAR.ReservationsSAR.context.user.domain.User;
 import com.SAR.ReservationsSAR.context.user.domain.UserRole;
 
@@ -56,8 +57,11 @@ public class UserEntity implements UserDetails {
     private UserRole role;
 
     @Builder.Default
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<SessionTokenEntity> sessionTokens = new ArrayList<>();
+
+    @OneToMany(mappedBy = "coordinator", cascade = CascadeType.ALL)
+    private List<ReservationEntity> reservations = new ArrayList<>();
 
     @PrePersist
     public void setDefaultValues() {

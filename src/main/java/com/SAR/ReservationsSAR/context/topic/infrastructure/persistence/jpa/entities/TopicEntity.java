@@ -30,10 +30,10 @@ public class TopicEntity {
     @Column(nullable = false, length = 30)
     private String name;
 
-    @ManyToMany(mappedBy = "topics")
+    @ManyToMany(mappedBy = "topics", cascade = CascadeType.ALL)
     private List<EstablishmentEntity> establishments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "topic")
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
     private List<ReservationEntity> reservations = new ArrayList<>();
 
     public static TopicEntity fromDomainModel(Topic topic) {

@@ -1,6 +1,7 @@
 package com.SAR.ReservationsSAR.context.establishment.infrastructure.persistence.jpa.entities;
 
 import com.SAR.ReservationsSAR.context.establishment.domain.Establishment;
+import com.SAR.ReservationsSAR.context.reservation.infrastructure.persistence.jpa.entities.ReservationEntity;
 import com.SAR.ReservationsSAR.context.topic.infrastructure.persistence.jpa.entities.TopicEntity;
 
 import jakarta.persistence.*;
@@ -38,7 +39,7 @@ public class EstablishmentEntity {
     @Column(nullable = false)
     private int pricePerHour;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "establishments_topics",
             joinColumns = @JoinColumn(name = "establishment_id"),
@@ -46,8 +47,11 @@ public class EstablishmentEntity {
     )
     private List<TopicEntity> topics = new ArrayList<>();
 
-    @OneToMany(mappedBy = "establishment")
+    @OneToMany(mappedBy = "establishment", cascade = CascadeType.ALL)
     private List<EstablishmentImageEntity> images = new ArrayList<>();
+
+    @OneToMany(mappedBy = "establishment", cascade = CascadeType.ALL)
+    private List<ReservationEntity> reservations = new ArrayList<>();
 
     public static EstablishmentEntity fromDomainModel(Establishment establishment) {
         return EstablishmentEntity.builder()
