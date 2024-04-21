@@ -5,8 +5,9 @@ import com.SAR.ReservationsSAR.context.establishment.domain.responses.Establishm
 import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentItemResponse;
 import com.SAR.ReservationsSAR.context.establishment.domain.Establishment;
 import com.SAR.ReservationsSAR.context.establishment.domain.EstablishmentRepository;
-import com.SAR.ReservationsSAR.context.topic.domain.Topic;
 import com.SAR.ReservationsSAR.context.topic.domain.TopicRepository;
+import com.SAR.ReservationsSAR.context.topic.domain.mappers.TopicMapper;
+import com.SAR.ReservationsSAR.context.topic.domain.responses.TopicResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -42,11 +43,11 @@ public class EstablishmentServiceImpl implements EstablishmentService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Topic> getEstablishmentTopics(UUID establishmentId) {
+    public List<TopicResponse> getEstablishmentTopics(UUID establishmentId) {
         Establishment establishment = this.establishmentRepository.findById(establishmentId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "El establecimiento no existe"));
 
-        return establishment.getTopics();
+        return TopicMapper.INSTANCE.toListResponse(establishment.getTopics());
     }
 
     @Override
