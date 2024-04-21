@@ -49,6 +49,7 @@ public class EstablishmentControllerImpl implements EstablishmentController {
 
     @Override
     @GetMapping("/{establishmentId}/topics")
+    @Operation(summary = "Get all topics from a establishment")
     public ResponseEntity<List<TopicResponse>> getEstablishmentTopics(UUID establishmentId) {
         return ResponseEntity.ok(this.service.getEstablishmentTopics(establishmentId));
     }
