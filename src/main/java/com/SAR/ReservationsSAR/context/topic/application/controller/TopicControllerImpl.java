@@ -3,6 +3,7 @@ package com.SAR.ReservationsSAR.context.topic.application.controller;
 import com.SAR.ReservationsSAR.context.topic.application.service.TopicService;
 import com.SAR.ReservationsSAR.context.topic.domain.responses.TopicResponse;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class TopicControllerImpl implements TopicController {
 
     @Override
     @GetMapping
+    @Operation(summary = "Get all topics")
     public ResponseEntity<List<TopicResponse>> getAll() {
         return ResponseEntity.ok(this.service.getAll());
     }
