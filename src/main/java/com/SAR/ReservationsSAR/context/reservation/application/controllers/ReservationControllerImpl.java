@@ -2,8 +2,10 @@ package com.SAR.ReservationsSAR.context.reservation.application.controllers;
 
 import com.SAR.ReservationsSAR.context.reservation.domain.requests.MakeReservationRequest;
 import com.SAR.ReservationsSAR.context.reservation.application.services.ReservationService;
+import com.SAR.ReservationsSAR.context.reservation.domain.responses.ReservationItemResponse;
 import com.SAR.ReservationsSAR.context.user.domain.User;
 
+import com.SAR.ReservationsSAR.shared.domain.responses.MessageResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @Validated
@@ -30,21 +33,21 @@ public class ReservationControllerImpl implements ReservationController {
     @Override
     @GetMapping("/pending")
     @Operation(summary = "Get all pending reservations")
-    public ResponseEntity<?> getAllPendingReservations(User user) {
+    public ResponseEntity<List<ReservationItemResponse>> getAllPendingReservations(User user) {
         return ResponseEntity.ok(this.service.getAllPendingReservations(user));
     }
 
     @Override
     @PostMapping
     @Operation(summary = "Make reservation")
-    public ResponseEntity<?> makeReservation(User user, MakeReservationRequest request) {
+    public ResponseEntity<MessageResponse> makeReservation(User user, MakeReservationRequest request) {
         return new ResponseEntity<>(this.service.makeReservation(user, request), HttpStatus.CREATED);
     }
 
     @Override
     @PostMapping("/{id}/cancel")
     @Operation(summary = "Cancel a reservation")
-    public ResponseEntity<?> cancelReservation(UUID reservationId, User user) {
+    public ResponseEntity<MessageResponse> cancelReservation(UUID reservationId, User user) {
         return ResponseEntity.ok(this.service.cancelReservation(reservationId, user.getId()));
     }
 }

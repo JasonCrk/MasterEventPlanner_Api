@@ -2,6 +2,10 @@ package com.SAR.ReservationsSAR.context.establishment.application.controller;
 
 import com.SAR.ReservationsSAR.context.establishment.application.services.EstablishmentService;
 
+import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentDetailsResponse;
+import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentItemResponse;
+import com.SAR.ReservationsSAR.context.topic.domain.responses.TopicResponse;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -27,7 +32,7 @@ public class EstablishmentControllerImpl implements EstablishmentController {
     @Override
     @GetMapping("/search/available")
     @Operation(summary = "Search available establishments")
-    public ResponseEntity<?> searchAvailableEstablishments(
+    public ResponseEntity<List<EstablishmentItemResponse>> searchAvailableEstablishments(
             LocalDateTime realizationDate,
             LocalDateTime finishDate,
             UUID topicId
@@ -38,13 +43,13 @@ public class EstablishmentControllerImpl implements EstablishmentController {
     @Override
     @GetMapping("/{establishmentId}")
     @Operation(summary = "Get all establishment details by id")
-    public ResponseEntity<?> getEstablishmentDetails(UUID establishmentId) {
+    public ResponseEntity<EstablishmentDetailsResponse> getEstablishmentDetails(UUID establishmentId) {
         return ResponseEntity.ok(this.service.getEstablishmentDetails(establishmentId));
     }
 
     @Override
     @GetMapping("/{establishmentId}/topics")
-    public ResponseEntity<?> getEstablishmentTopics(UUID establishmentId) {
+    public ResponseEntity<List<TopicResponse>> getEstablishmentTopics(UUID establishmentId) {
         return ResponseEntity.ok(this.service.getEstablishmentTopics(establishmentId));
     }
 }
