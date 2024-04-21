@@ -1,7 +1,8 @@
 package com.SAR.ReservationsSAR.context.topic.application.service;
 
-import com.SAR.ReservationsSAR.context.topic.domain.Topic;
 import com.SAR.ReservationsSAR.context.topic.domain.TopicRepository;
+import com.SAR.ReservationsSAR.context.topic.domain.mappers.TopicMapper;
+import com.SAR.ReservationsSAR.context.topic.domain.responses.TopicResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,7 +19,7 @@ public class TopicServiceImpl implements TopicService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Topic> getAll() {
-        return this.topicRepository.findAll();
+    public List<TopicResponse> getAll() {
+        return TopicMapper.INSTANCE.toListResponse(this.topicRepository.findAll());
     }
 }
