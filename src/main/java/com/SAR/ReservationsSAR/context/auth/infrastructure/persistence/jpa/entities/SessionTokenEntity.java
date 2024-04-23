@@ -37,7 +37,7 @@ public class SessionTokenEntity {
     @Column(nullable = false, columnDefinition = "BOOLEAN")
     private boolean expired;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
