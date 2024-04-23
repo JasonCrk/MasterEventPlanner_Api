@@ -59,9 +59,6 @@ public class SessionTokenServiceImpl implements SessionTokenService {
         var token = SessionToken.builder()
                 .user(user)
                 .token(jwtToken)
-                .type(TokenType.BEARER)
-                .expired(false)
-                .revoked(false)
                 .build();
         sessionTokenRepository.save(token);
     }
