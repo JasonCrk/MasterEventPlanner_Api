@@ -31,7 +31,7 @@ public class ReservationControllerImpl implements ReservationController {
     private ReservationService service;
 
     @Override
-    @GetMapping("/pending")
+    @GetMapping
     @Operation(summary = "Get all pending reservations")
     public ResponseEntity<List<ReservationItemResponse>> getAllPendingReservations(User user) {
         return ResponseEntity.ok(this.service.getAllPendingReservations(user));
