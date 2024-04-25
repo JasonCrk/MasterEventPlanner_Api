@@ -1,11 +1,14 @@
 package com.SAR.ReservationsSAR.context.reservation.application.controllers;
 
-import com.SAR.ReservationsSAR.context.reservation.domain.requests.MakeReservationRequest;
+import com.SAR.ReservationsSAR.context.payment.domain.responses.PaymentResponse;
+import com.SAR.ReservationsSAR.context.reservation.domain.requests.ConfirmReservationRequest;
+import com.SAR.ReservationsSAR.context.reservation.domain.requests.CreateReservationRequest;
 import com.SAR.ReservationsSAR.context.reservation.application.services.ReservationService;
 import com.SAR.ReservationsSAR.context.reservation.domain.responses.ReservationItemResponse;
 import com.SAR.ReservationsSAR.context.user.domain.User;
 
 import com.SAR.ReservationsSAR.shared.domain.responses.MessageResponse;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -38,10 +41,17 @@ public class ReservationControllerImpl implements ReservationController {
     }
 
     @Override
-    @PostMapping
-    @Operation(summary = "Make reservation")
-    public ResponseEntity<MessageResponse> makeReservation(User user, MakeReservationRequest request) {
-        return new ResponseEntity<>(this.service.makeReservation(user, request), HttpStatus.CREATED);
+    @PostMapping("/checkout/confirm")
+    @Operation(summary = "Confirm payment and create reservation")
+    public ResponseEntity<MessageResponse> confirmReservation(User user, ConfirmReservationRequest request) {
+        return new ResponseEntity<>(this.service.confirmReservation(user, request), HttpStatus.CREATED);
+    }
+
+    @Override
+    @PostMapping("/checkout")
+    @Operation(summary = "Create reservation payment intent")
+    public ResponseEntity<PaymentResponse> createReservationPayment(User user, CreateReservationRequest request) {
+        return ResponseEntity.ok(this.service.createReservationPayment(user, request));
     }
 
     @Override

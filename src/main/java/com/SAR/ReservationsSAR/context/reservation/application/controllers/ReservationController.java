@@ -1,8 +1,11 @@
 package com.SAR.ReservationsSAR.context.reservation.application.controllers;
 
-import com.SAR.ReservationsSAR.context.reservation.domain.requests.MakeReservationRequest;
+import com.SAR.ReservationsSAR.context.payment.domain.responses.PaymentResponse;
+import com.SAR.ReservationsSAR.context.reservation.domain.requests.ConfirmReservationRequest;
+import com.SAR.ReservationsSAR.context.reservation.domain.requests.CreateReservationRequest;
 import com.SAR.ReservationsSAR.context.reservation.domain.responses.ReservationItemResponse;
 import com.SAR.ReservationsSAR.context.user.domain.User;
+
 import com.SAR.ReservationsSAR.shared.domain.responses.MessageResponse;
 
 import jakarta.validation.Valid;
@@ -16,11 +19,18 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ReservationController {
-    ResponseEntity<List<ReservationItemResponse>> getAllPendingReservations(@RequestAttribute("user") User user);
+    ResponseEntity<List<ReservationItemResponse>> getAllPendingReservations(
+            @RequestAttribute("user") User user
+    );
 
-    ResponseEntity<MessageResponse> makeReservation(
+    ResponseEntity<MessageResponse> confirmReservation(
             @RequestAttribute("user") User user,
-            @Valid @RequestBody MakeReservationRequest request
+            @Valid @RequestBody ConfirmReservationRequest request
+    );
+
+    ResponseEntity<PaymentResponse> createReservationPayment(
+            @RequestAttribute("user") User user,
+            @Valid @RequestBody CreateReservationRequest request
     );
 
     ResponseEntity<MessageResponse> cancelReservation(
