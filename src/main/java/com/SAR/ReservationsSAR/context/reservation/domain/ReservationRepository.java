@@ -10,6 +10,8 @@ import java.util.UUID;
 public interface ReservationRepository {
     List<Reservation> findByUserAndStatus(User user, ReservationStatus status);
 
+    Optional<Reservation> findByPaymentId(String paymentId);
+
     Optional<Reservation> findById(UUID id);
 
     boolean existsCollisionOfRealizationAndFinishDates(

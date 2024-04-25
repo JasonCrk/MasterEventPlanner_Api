@@ -34,6 +34,12 @@ public class JpaReservationsRepositoryAdapter implements ReservationRepository {
 
     @Override
     @Transactional(readOnly = true)
+    public Optional<Reservation> findByPaymentId(String paymentId) {
+        return this.repository.findByPayId(paymentId).map(ReservationEntity::toDomainModel);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Optional<Reservation> findById(UUID id) {
         return this.repository.findById(id).map(ReservationEntity::toDomainModel);
     }
