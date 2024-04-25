@@ -2,7 +2,7 @@ package com.SAR.ReservationsSAR.context.payment.infrastructure.adapters.stripe;
 
 import com.SAR.ReservationsSAR.context.payment.application.exceptions.PaymentException;
 import com.SAR.ReservationsSAR.context.payment.domain.Customer;
-import com.SAR.ReservationsSAR.context.payment.domain.ExternalCustomerPaymentService;
+import com.SAR.ReservationsSAR.context.payment.domain.ports.ExternalCustomerPaymentService;
 
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;

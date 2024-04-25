@@ -1,4 +1,6 @@
-package com.SAR.ReservationsSAR.context.payment.domain;
+package com.SAR.ReservationsSAR.context.payment.domain.ports;
+
+import com.SAR.ReservationsSAR.context.payment.domain.Customer;
 
 public interface ExternalCustomerPaymentService {
     Customer findByEmail(String email);
