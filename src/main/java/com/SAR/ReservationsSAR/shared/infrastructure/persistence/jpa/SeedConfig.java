@@ -187,9 +187,8 @@ public class SeedConfig {
 
             for (EstablishmentEntity establishment : establishments) {
                 var establishmentSaved = this.establishmentRepository.save(establishment);
-                System.out.println(establishmentSaved);
                 this.establishmentImageRepository.save(EstablishmentImageEntity.builder()
-                        .imageUrl("https://test_images.com/image.png")
+                        .imageUrl("https://www.saucealto.com.pe/static/img/sl-home/sauce-alto-2.jpg")
                         .establishment(establishmentSaved)
                         .build());
             }
