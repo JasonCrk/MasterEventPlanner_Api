@@ -1,8 +1,8 @@
 package com.SAR.ReservationsSAR.shared.application.config;
 
 import com.SAR.ReservationsSAR.context.user.domain.UserRepository;
-
 import com.SAR.ReservationsSAR.context.user.infrastructure.persistence.jpa.entities.UserEntity;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ public class AuthenticationConfig {
     public UserDetailsService userDetailsService() {
         return username -> userRepository.findByEmail(username)
                 .map(UserEntity::fromDomainModel)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                .orElseThrow(() -> new UsernameNotFoundException("El usuario no existe"));
     }
 
     @Bean
