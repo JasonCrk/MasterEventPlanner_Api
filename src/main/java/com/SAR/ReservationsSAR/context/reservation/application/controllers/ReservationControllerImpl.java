@@ -24,9 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.UUID;
 
+@Tag(name = "Reservation")
 @Validated
 @RestController
-@Tag(name = "Reservation")
 @RequestMapping("/api/v1/reservations")
 public class ReservationControllerImpl implements ReservationController {
 

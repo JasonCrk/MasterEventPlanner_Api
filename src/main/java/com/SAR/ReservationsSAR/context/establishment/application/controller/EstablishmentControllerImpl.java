@@ -20,9 +20,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-@RestController
-@Validated
 @Tag(name = "Establishment")
+@Validated
+@RestController
 @RequestMapping("/api/v1/establishments")
 public class EstablishmentControllerImpl implements EstablishmentController {
 
