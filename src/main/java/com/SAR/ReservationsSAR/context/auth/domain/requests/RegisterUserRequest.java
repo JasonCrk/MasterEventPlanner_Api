@@ -37,6 +37,6 @@ public class RegisterUserRequest {
     private String email;
 
     @NotBlank(message = "La contraseña es requerida")
-    @Size(min = 255, message = "Máximo 255 caracteres")
+    @Size(max = 255, message = "Máximo 255 caracteres")
     private String password;
 }

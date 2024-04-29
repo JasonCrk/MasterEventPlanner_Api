@@ -19,6 +19,6 @@ public class LoginRequest {
     private String email;
 
     @NotBlank(message = "The password is required")
-    @Size(min = 255)
+    @Size(max = 255)
     private String password;
 }
