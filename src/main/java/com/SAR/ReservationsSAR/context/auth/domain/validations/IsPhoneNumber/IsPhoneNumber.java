@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = IsPhoneNumberValidator.class)
 @Documented
 public @interface IsPhoneNumber {
-    String message() default "The phone number is invalid";
+    String message() default "El número de teléfono es invalido";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
