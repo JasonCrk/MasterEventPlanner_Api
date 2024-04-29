@@ -21,6 +21,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -56,12 +57,19 @@ public class AuthFilter extends OncePerRequestFilter {
         userEmail = jwtService.extractUsername(accessToken);
 
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
+            UserDetails userDetails;
+
+            try {
+                userDetails = this.userDetailsService.loadUserByUsername(userEmail);
+            } catch (UsernameNotFoundException e) {
+                FilterErrorResponse.send(response, "El usuario no existe", HttpStatus.NOT_FOUND);
+                return;
+            }
 
             Optional<User> user = this.userRepository.findByEmail(userDetails.getUsername());
 
             if (user.isEmpty()) {
-                FilterErrorResponse.send(response, "The token is invalid", HttpStatus.UNAUTHORIZED);
+                FilterErrorResponse.send(response, "El usuario es invalido", HttpStatus.NOT_FOUND);
                 return;
             }
 
