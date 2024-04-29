@@ -15,34 +15,28 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class RegisterUserRequest {
 
-    @NotBlank(message = "The first name is required")
-    @NotNull(message = "The first name is required")
-    @Size(max = 60)
+    @NotBlank(message = "El nombre es requerido")
+    @Size(max = 60, message = "Máximo 60 caracteres")
     private String firstName;
 
-    @NotBlank(message = "The last name is required")
-    @NotNull(message = "The last name is required")
-    @Size(max = 50)
+    @NotBlank(message = "Los apellidos son requeridos")
+    @Size(max = 50, message = "Máximo 50 caracteres")
     private String lastName;
 
-    @NotBlank(message = "The birthdate is required")
-    @NotNull(message = "The birthdate is required")
-    @Past
+    @NotNull(message = "La fecha de nacimiento es requerida")
+    @Past(message = "La fecha de nacimiento no puede ser mayor a la actual")
     private LocalDate birthdate;
 
-    @NotBlank(message = "The phone number is required")
-    @NotNull(message = "The phone number is required")
+    @NotBlank(message = "El número de teléfono es requerido")
     @IsPhoneNumber
     private String phoneNumber;
 
-    @Email(message = "The email is invalid")
-    @NotBlank(message = "The email is required")
-    @NotNull(message = "The email is required")
-    @Size(max = 255)
+    @Email(message = "El correo electrónico es invalido")
+    @NotBlank(message = "El correo electrónico es requerido")
+    @Size(max = 255, message = "Máximo 255 caracteres")
     private String email;
 
-    @NotBlank(message = "The password is required")
-    @NotNull(message = "The password is required")
-    @Size(min = 255)
+    @NotBlank(message = "La contraseña es requerida")
+    @Size(min = 255, message = "Máximo 255 caracteres")
     private String password;
 }
