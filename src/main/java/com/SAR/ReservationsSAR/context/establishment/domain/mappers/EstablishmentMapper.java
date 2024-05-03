@@ -5,13 +5,14 @@ import com.SAR.ReservationsSAR.context.establishment.domain.responses.Establishm
 import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentSimpleResponse;
 import com.SAR.ReservationsSAR.context.establishment.domain.Establishment;
 
+import com.SAR.ReservationsSAR.context.topic.domain.mappers.TopicMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", imports = {TopicMapper.class})
 public interface EstablishmentMapper {
 
     EstablishmentMapper INSTANCE = Mappers.getMapper(EstablishmentMapper.class);

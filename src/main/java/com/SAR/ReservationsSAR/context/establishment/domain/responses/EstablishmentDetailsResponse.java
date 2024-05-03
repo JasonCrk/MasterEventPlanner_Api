@@ -1,6 +1,7 @@
 package com.SAR.ReservationsSAR.context.establishment.domain.responses;
 
 import com.SAR.ReservationsSAR.context.establishment.domain.EstablishmentImage;
+import com.SAR.ReservationsSAR.context.topic.domain.responses.TopicResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,5 +18,6 @@ public class EstablishmentDetailsResponse {
     private String name;
     private String description;
     private int maxCapacity;
+    private List<TopicResponse> topics;
     private List<EstablishmentImage> images;
 }
