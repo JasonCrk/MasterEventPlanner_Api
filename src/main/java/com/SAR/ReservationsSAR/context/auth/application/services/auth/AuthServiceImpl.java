@@ -69,7 +69,7 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     public JwtResponse login(LoginRequest request) {
         User user = this.userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The user does not exist"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "El usuario no existe"));
 
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 user.getEmail(),
@@ -109,8 +109,8 @@ public class AuthServiceImpl implements AuthService {
                 .getUserAndTokenFromHttpRequestHeader(request);
 
         if (!jwtService.isTokenValid(authorizationData.getToken(), authorizationData.getUser().getUsername()))
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "The token is invalid");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "La clave de acceso es invalida");
 
-        return new MessageResponse("The token is valid");
+        return new MessageResponse("La clave de acceso es valida");
     }
 }

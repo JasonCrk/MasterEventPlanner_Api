@@ -37,7 +37,7 @@ public class SessionTokenServiceImpl implements SessionTokenService {
         if (authHeader == null ||!authHeader.startsWith("Bearer "))
             throw new ResponseStatusException(
                     HttpStatus.UNAUTHORIZED,
-                    "The authentication header does not exist or the token type is invalid"
+                    "La cabecera de autorización no existe o el tipo de token no existe"
             );
 
         token = authHeader.substring(7);
@@ -45,10 +45,10 @@ public class SessionTokenServiceImpl implements SessionTokenService {
         userEmail = this.jwtService.extractUsername(token);
 
         if (userEmail == null)
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "The token is invalid");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "La clave de acceso es invalida");
 
         var user = this.userRepository.findByEmail(userEmail)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "The token is invalid"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "La clave de acceso es invalida"));
 
         return new UserAndTokenResponse(user, token);
     }
