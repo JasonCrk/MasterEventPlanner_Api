@@ -4,8 +4,8 @@ import com.SAR.ReservationsSAR.context.establishment.domain.responses.Establishm
 import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentItemResponse;
 import com.SAR.ReservationsSAR.context.establishment.domain.responses.EstablishmentSimpleResponse;
 import com.SAR.ReservationsSAR.context.establishment.domain.Establishment;
-
 import com.SAR.ReservationsSAR.context.topic.domain.mappers.TopicMapper;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -20,6 +20,7 @@ public interface EstablishmentMapper {
     @Mapping(expression = "java(establishment.getImages().get(0).getImageUrl())", target = "firstImage")
     EstablishmentSimpleResponse toSimple(Establishment establishment);
 
+    @Mapping(expression = "java(Double.valueOf((double) establishment.getPricePerHour() / 100))", target = "pricePerHour")
     EstablishmentDetailsResponse toDetails(Establishment establishment);
 
     @Mapping(expression = "java(establishment.getImages().get(0).getImageUrl())", target = "firstImage")

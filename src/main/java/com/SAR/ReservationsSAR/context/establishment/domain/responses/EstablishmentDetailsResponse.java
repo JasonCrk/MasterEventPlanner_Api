@@ -17,6 +17,7 @@ public class EstablishmentDetailsResponse {
     private UUID id;
     private String name;
     private String description;
+    private double pricePerHour;
     private int maxCapacity;
     private List<TopicResponse> topics;
     private List<EstablishmentImage> images;
