@@ -96,42 +96,42 @@ public class SeedConfig {
                     EstablishmentEntity.builder()
                             .name("Sala de directorio")
                             .description("Con capacidad para 12 personas, nuestra Sala de Directorio ofrece tecnología de proyección multimedia de vanguardia y un moderno ecran para presentaciones impactantes. Además, cuenta con una terraza adyacente para servicios de \"coffee break\", proporcionando un ambiente tranquilo para recargar energías entre reuniones.")
-                            .pricePerHour(1500)
+                            .pricePerHour(9000)
                             .maxCapacity(12)
                             .topics(List.of(multimediaProjection))
                             .build(),
                     EstablishmentEntity.builder()
                             .name("Sala el fundador")
                             .description("Con una capacidad máxima para 80 personas, la Sala El Fundador es el espacio ideal para una variedad de eventos, desde conferencias y talleres hasta ceremonias y workshops. Equipada con tecnología de punta, incluyendo proyector multimedia, ecran, sistema de sonido centralizado y micrófono inalámbrico, garantiza una experiencia audiovisual impecable y una comunicación clara para todos los asistentes. Además, la Sala El Fundador ofrece la versatilidad de oscurecimiento con su sistema \"blackout\", permitiendo ajustar la iluminación según las necesidades del evento. Ya sea para sesiones educativas o eventos formales, este espacio proporciona el ambiente adecuado para cada ocasión.")
-                            .pricePerHour(2000)
+                            .pricePerHour(26000)
                             .maxCapacity(80)
                             .topics(List.of(multimediaProjection, conference, workshop, school, ceremony))
                             .build(),
                     EstablishmentEntity.builder()
                             .name("Sala de piedra")
                             .description("Con capacidad para hasta 120 personas, la Sala de Piedra se adapta a una variedad de eventos, desde conferencias y cocktails hasta almuerzos y workshops. Equipada con el mobiliario y equipamiento necesarios para cada ocasión, ofrece una vista panorámica a la zona de piscinas y áreas verdes, creando un entorno inspirador y relajante para reuniones y actividades sociales.")
-                            .pricePerHour(2000)
+                            .pricePerHour(25500)
                             .maxCapacity(120)
                             .topics(List.of(conference, lunch, productPresentation, workshop))
                             .build(),
                     EstablishmentEntity.builder()
                             .name("Restaurante el mesón")
                             .description("Con una capacidad máxima para 200 personas, el Restaurante El Mesón es el lugar perfecto para una variedad de eventos, desde almuerzos y cenas hasta cocktails, matrimonios y aniversarios. Su versatilidad se refleja en su capacidad de adaptarse al armado y la decoración específica para cada ocasión, asegurando una experiencia única y personalizada para cada evento.")
-                            .pricePerHour(2000)
+                            .pricePerHour(280000)
                             .maxCapacity(200)
                             .topics(List.of(lunch, dinner, marriage, anniversary))
                             .build(),
                     EstablishmentEntity.builder()
                             .name("Anfiteatro")
                             .description("El Anfiteatro es un espacio único que combina áreas verdes con un escenario natural de piedra, creando un entorno impresionante para una variedad de eventos. Con una capacidad máxima para 600 personas, este lugar ofrece infraestructura y equipos adaptados a la ocasión, desde fiestas y almuerzos bailables hasta aniversarios y eventos institucionales. Además, cuenta con una infraestructura fija diseñada específicamente para la actuación de orquestas, garantizando una experiencia musical excepcional para los asistentes.")
-                            .pricePerHour(2000)
+                            .pricePerHour(25000)
                             .maxCapacity(600)
                             .topics(List.of(party, dancingLunch, anniversary, institutionalEvent))
                             .build(),
                     EstablishmentEntity.builder()
                             .name("Explanada baja de piscina")
                             .description("Situada en un entorno natural impresionante, la Explanada Baja de Piscina ofrece áreas verdes de 1500 m2, rodeadas de árboles y con vista a una laguna natural. Con una capacidad máxima de 800 personas, este espacio es ideal para almuerzos campestres, dinámicas de \"team building\", fiestas, almuerzos bailables, aniversarios y juegos de competencia. La infraestructura y los equipos se adaptan a la ocasión, asegurando una experiencia memorable y exitosa para todos los eventos celebrados aquí.")
-                            .pricePerHour(2000)
+                            .pricePerHour(26000)
                             .maxCapacity(800)
                             .topics(List.of(
                                     picnicLunch,
@@ -144,7 +144,7 @@ public class SeedConfig {
                     EstablishmentEntity.builder()
                             .name("Explanada de piscina alta")
                             .description("Rodeada de áreas verdes y equipada con piscinas de esparcimiento para adultos y niños, la Explanada de Piscina Alta ofrece un ambiente acuático relajante y divertido para eventos de hasta 400 personas. La infraestructura y el equipamiento se adaptan a cada ocasión, desde juegos de competencia acuáticos y dinámicas de \"team building\" hasta fiestas, almuerzos bailables, almuerzos campestres, aniversarios y otros eventos especiales. Este espacio versátil proporciona una experiencia única y refrescante para todas las celebraciones.")
-                            .pricePerHour(2000)
+                            .pricePerHour(28000)
                             .maxCapacity(400)
                             .topics(List.of(
                                     competitiveGame,
@@ -157,7 +157,7 @@ public class SeedConfig {
                     EstablishmentEntity.builder()
                             .name("Area deportiva N1")
                             .description("Con una amplia explanada de áreas verdes de 1800 m2, el Área Deportiva N° 1 es el escenario perfecto para una variedad de eventos. Con capacidad para 800 personas, este espacio es ideal para eventos deportivos, campeonatos de fulbito y/o vóley, almuerzos, fiestas bailables y eventos institucionales. La infraestructura y el equipamiento se adaptan meticulosamente a la ocasión, garantizando un ambiente óptimo y seguro para todas las actividades celebradas aquí.")
-                            .pricePerHour(2000)
+                            .pricePerHour(26000)
                             .maxCapacity(800)
                             .topics(List.of(
                                     sportsEvent,
@@ -169,13 +169,13 @@ public class SeedConfig {
                     EstablishmentEntity.builder()
                             .name("Area deportiva N2")
                             .description("Con una explanada de áreas verdes de 1600 m2, el Área Deportiva N° 2 es un espacio versátil diseñado para una amplia gama de actividades deportivas y recreativas. Ideal para campeonatos deportivos de fulbito y vóley, juegos de competencia, rapel y más, este lugar ofrece el escenario perfecto para emocionantes desafíos y actividades al aire libre.")
-                            .pricePerHour(2000)
+                            .pricePerHour(25000)
                             .maxCapacity(800)
                             .topics(List.of(sportsChampionship)).build(),
                     EstablishmentEntity.builder()
                             .name("Zona de camping")
                             .description("Con una vasta explanada de áreas verdes de 8000 m2, la Zona de Camping ofrece un espacio natural y espacioso para una variedad de eventos. Con capacidad para hasta 1800 personas, este lugar es ideal para eventos institucionales, dinámicas grupales, eventos de fin de año, almuerzos bailables, pachamancas y más. Además, su área adecuada para actividades en simultáneo permite la realización de múltiples actividades al mismo tiempo, brindando opciones para todos los gustos y edades. La infraestructura y el equipamiento se adaptan cuidadosamente a cada ocasión, garantizando una experiencia cómoda y memorable para todos los participantes.")
-                            .pricePerHour(2000)
+                            .pricePerHour(25000)
                             .maxCapacity(1800)
                             .topics(List.of(
                                     institutionalEvent,
